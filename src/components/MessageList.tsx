@@ -1,8 +1,10 @@
 import moment from 'moment'
+import Image from 'next/image'
 import type { FC } from 'react'
 import styles from '../styles/Messages.module.css'
 import { Message } from '../types/message'
 import { getLoggedUserId } from '../utils/getLoggedUserId'
+import buttonSend from '../assets/send.webp'
 
 type MessageListProps = {
     recipient: ""
@@ -23,12 +25,12 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient }) => {
                 <span>{recipient}</span>
                 <span className={styles.lastDateMessage}>{moment.unix(getLastMessage()?.timestamp).calendar()}</span>
             </div>
-            <div className={styles.content}>
+            <div className={styles.content} >
                 {messages?.map(message => (
                     <div key={`msg_${message.id}`} className={styles.box}>
                         <div className={isRecipient(message) ? styles.left : styles.right} >
-                            <span className={styles.recipient}>{recipient}</span>
-                            <div className={styles.content}>
+                            <div className={styles.recipient}>{recipient}</div>
+                            <div className={styles.body}>
                                 <span>{message.body}</span>
                             </div>
                         </div>
@@ -36,7 +38,9 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient }) => {
                 ))}
             </div>
             < div className={styles.footer} >
-                <input type="text" />
+                <form onSubmit={(e) => { e.preventDefault(); console.log("submit") }}>
+                    <input type="text" />
+                </form>
             </div>
         </div >
     )

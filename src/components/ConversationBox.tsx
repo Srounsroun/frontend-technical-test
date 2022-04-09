@@ -5,17 +5,17 @@ import Image from 'next/image'
 import moment from 'moment'
 
 type ConversationBoxProp = {
-    recipientNickName: string
+    nickName: string
     imageUrl: string
     date: number
 }
 
-const ConversationBox: FC<ConversationBoxProp> = ({ recipientNickName, imageUrl, date }) => {
+const ConversationBox: FC<ConversationBoxProp> = ({ nickName, imageUrl, date }) => {
     return (
         <div className={styles.card}>
-            <Image className={styles.profile} src={imageUrl || defaultUserImage} width={32} height={32} alt="" unoptimized />
+            <Image className={styles.profile} src={imageUrl || defaultUserImage} layout="fixed" width={40} height={40} alt="" unoptimized />
             <div className={styles.content}>
-                <span className={styles.nickName}>{recipientNickName}</span>
+                <span className={styles.nickName}>{nickName}</span>
                 <span className={styles.dateTime}>{moment.unix(date).utc().calendar()}</span>
             </div>
         </div>

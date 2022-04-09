@@ -13,7 +13,7 @@ const ConversationListBox: FC<ConversationListBoxProp> = ({ conversations }) => 
         <div className={styles.conversations}>
             {conversations?.map(conversation => <ConversationBox
                 key={`conv_${conversation.id}`}
-                recipientNickName={conversation.recipientNickname}
+                nickName={conversation.recipientNickname}
                 date={conversation.lastMessageTimestamp}
                 imageUrl={null}
             />)
