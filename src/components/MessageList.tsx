@@ -23,15 +23,20 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient }) => {
                 <span>{recipient}</span>
                 <span>{moment.unix(getLastMessage()?.timestamp).calendar()}</span>
             </div>
-            {messages?.map(message => <div className={isRecipient(message) ? styles.boxLeft : styles.boxRight } key={`msg_${message.id}`}>
-                {isRecipient(message) && <span>{recipient}</span>}
-                <span>{message.body}</span>
-                <span>{moment.unix(message.timestamp).calendar()}</span>
-            </div>)}
-            <div className={styles.footer}>
+            {messages?.map(message => (
+                <div key={`msg_${message.id}`} className={styles.box}>
+                    <div className={isRecipient(message) ? styles.left : styles.right} >
+                        <span className={styles.recipient}>{recipient}</span>
+                        <div className={styles.content}>
+                            <span>{message.body}</span>
+                        </div>
+                    </div>
+                </div>
+            ))}
+            < div className={styles.footer} >
                 <input type="text" />
             </div>
-        </div>
+        </div >
     )
 }
 
