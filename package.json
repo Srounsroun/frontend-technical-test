@@ -9,7 +9,7 @@
     "start-server": "json-server --watch src/server/db.json --routes src/server/routes.json --middlewares src/server/middleware/conversations.js --port 3005",
     "test": "jest",
     "lint": "next lint --no-error-on-unmatched-pattern",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
   "engines": {
