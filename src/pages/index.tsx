@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Logo from '../assets/lbc-logo.webp'
 import styles from '../styles/Home.module.css'
+import Messenger from '../components/Messenger'
 
 const Home: FC = () => {
   const year = new Date().getFullYear()
@@ -16,6 +17,9 @@ const Home: FC = () => {
 
       <main className={styles.main}>
         <Image src={Logo} alt="Leboncoin's logo" width={400} height={125} />
+
+        <Messenger />
+
         <h1 className={styles.title}>
           Welcome !
         </h1>
