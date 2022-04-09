@@ -1,23 +1,31 @@
 import moment from 'moment'
-import Image from 'next/image'
-import type { FC } from 'react'
+import { FC, FormEvent, useState } from 'react'
 import styles from '../styles/Messages.module.css'
 import { Message } from '../types/message'
 import { getLoggedUserId } from '../utils/getLoggedUserId'
-import buttonSend from '../assets/send.webp'
 
 type MessageListProps = {
     recipient: ""
     messages: Message[]
+    onSubmit?: (message: string) => string
 }
 
-const MessageList: FC<MessageListProps> = ({ messages, recipient }) => {
+const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit }) => {
 
     const userId = getLoggedUserId();
 
     const isRecipient = (message: Message): boolean => message.authorId != userId;
 
     const getLastMessage = (): Message => messages?.at(-1);
+
+    const [message, setMessage] = useState("");
+
+    const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (onSubmit)
+            onSubmit(message);
+        setMessage(null);
+    }
 
     return (
         <div className={styles.list}>
@@ -38,8 +46,12 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient }) => {
                 ))}
             </div>
             < div className={styles.footer} >
-                <form onSubmit={(e) => { e.preventDefault(); console.log("submit") }}>
-                    <input type="text" />
+                <form onSubmit={handleOnSubmit}>
+                    <input type="text" value={message || ""} onChange={
+                        (e) => {
+                            setMessage(e.target.value);
+                        }}
+                    />
                 </form>
             </div>
         </div >
