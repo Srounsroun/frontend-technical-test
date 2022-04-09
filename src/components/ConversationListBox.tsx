@@ -14,7 +14,7 @@ const ConversationListBox: FC<ConversationListBoxProp> = ({ conversations }) => 
             {conversations?.map(conversation => <ConversationBox
                 key={`conv_${conversation.id}`}
                 recipientNickName={conversation.recipientNickname}
-                date={Date.now()}
+                date={conversation.lastMessageTimestamp}
                 imageUrl={null}
             />)
             }
