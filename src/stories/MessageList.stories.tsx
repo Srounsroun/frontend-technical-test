@@ -18,6 +18,9 @@ const Template: ComponentStory<typeof MessageList> = (args) => <MessageList {...
 
 export const Default = Template.bind({});
 Default.args = {
+  onSubmit: (message) => {
+    alert(`message submited "${message}"`);
+  },
   recipient: "Jane Do",
   messages: [
     {
