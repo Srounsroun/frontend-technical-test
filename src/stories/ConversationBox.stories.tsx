@@ -25,7 +25,7 @@ export default {
 
 export const Default = Template.bind({});
 Default.args = {
-  recipientNickName: "Evan Roberts",
+  nickName: "Evan Roberts",
   imageUrl: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
   date: 1625637849
 };
