@@ -13,11 +13,9 @@ type ConversationBoxProp = {
 const ConversationBox: FC<ConversationBoxProp> = ({ recipientNickName, imageUrl, date }) => {
     return (
         <div className={styles.conversation}>
-            <div className={styles.profile}>
-                <Image src={imageUrl || defaultUserImage} width={32} height={32} alt="" unoptimized />
-            </div>
+            <Image className={styles.profile} src={imageUrl || defaultUserImage} width={32} height={32} alt="" unoptimized />
             <span className={styles.nickName}>{recipientNickName}</span>
-            <span className={styles.dateTime}>{moment(date).calendar()}</span>
+            <span className={styles.dateTime}>{moment.unix(date).utc().calendar()}</span>
         </div>
     )
 }
