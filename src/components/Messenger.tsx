@@ -34,13 +34,22 @@ const Messenger: FC = () => {
                 setRecipient(conversation.recipientNickname);
                 setMessages(messages);
                 setCurrentConversation(conversation);
+            }).catch(reason => {
+                console.error(reason);
+                setErrorMessage("error while getting messages, please check your connections ...");
             });
     }
 
     const handleOnSubmit = (message) => {
+        if(message === "" || message === null)
+            return; 
+
         api.postMessage(userId, currentConversation.id, message)
             .then(response => {
                 setMessages([...messages, response])
+            }).catch(reason => {
+                console.error(reason);
+                setErrorMessage("error while submitting messages, please check your connections ...");
             });
     }
 
