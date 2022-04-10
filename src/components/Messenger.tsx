@@ -4,6 +4,7 @@ import { Conversation } from '../types/conversation';
 import { Message } from '../types/message';
 import { getLoggedUserId } from '../utils/getLoggedUserId';
 import ConversationListBox from './ConversationListBox';
+import styles from '../styles/Messenger.module.css'
 import MessageList from './MessageList';
 
 const Messenger: FC = () => {
@@ -43,10 +44,10 @@ const Messenger: FC = () => {
     }
 
     return (
-        <>
+        <div className={styles.container}>
             {!currentConversation && <ConversationListBox conversations={conversations} onCardClick={handleOnClick} />}
             {currentConversation && <MessageList messages={messages} recipient={recipient} onSubmit={handleOnSubmit} onGoBack={handleGoBack}/>}
-        </>
+        </div>
     )
 }
 
