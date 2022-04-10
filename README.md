@@ -1,15 +1,6 @@
-# Context :
-
-At leboncoin, our users can share messages about a transaction, or ask for informations about any products.
-
-Your job is to create the interface to consult those messages.
-The interface needs to work on both desktop & mobile devices.
-
-In addition to your code, a README explaining your thought process and your choices would be appreciated.
-
 # From Singdavid : 
 
-To start 
+Here is my response to the technical test, please find below instruction
 
 open a command line to execute the api server : 
 - npm run start-server
@@ -22,29 +13,51 @@ open another command line to start the document and test environment:
 - npm run storybook
 - access to http://localhost:6006
 
- The development process : 
+# The development process : 
 
 - First part, I forked the repo and took some times to understand the solution
 - I installed a storybook environment and try to make it work with NextJS
 - I create my first component ConversationBox
 - Then I use it in a ConversationListBox component and add the stories to be sure to match the api response.
 - I needed to update some types to add the timestamp
-- Then I continue to work on the messages and update the css accordingly with responsivity
-- I create the messenger api to be able to fetch and post data to conversation api.
-- I use it in messenger Component which regroup everything that have been done
+- Then I continue to work on the messages and update the css accordingly to the sketch with responsive feature
+- I create the messenger api service to be able to fetch and post data to conversation api.
+- I use the api in messenger Component which regroup everything that have been done (ConversationList and MessageList)
 - storybook allows me to develop and test at the same time.
 
-Bonus 1: 
+# Bonus 1: 
 - messenger component is also added to main home, don't forget to start the api server before
-
-Bonus 2: 
 - a text message is displayed when error is catch during api fetching
 
-Adding storybook allow to document and also develop component
+# to make the app better
+
+Adding storybook allow to document and also develop component as tooling for development and maintenance
  - we can add test cases and scenarios
  - we can also test responsiveness of component on mobile
  - we can be sure that the component is pure
  - hmr is available during dev
+ - can build dist stories to be published
+
+I add a back button to the Message list component to be able to go back to the discussion list
+I also add a send button to the message form
+
+The component is fully pure and can be use in any outside library if needed.
+
+Time spent on this project about 9h
+
+- 1h to understand and setup environment
+- 6h of late night coding session
+- 2h of cleaning when something's come's up in mind
+
+
+# Context :
+
+At leboncoin, our users can share messages about a transaction, or ask for informations about any products.
+
+Your job is to create the interface to consult those messages.
+The interface needs to work on both desktop & mobile devices.
+
+In addition to your code, a README explaining your thought process and your choices would be appreciated.
 
 # Exercice :
 
