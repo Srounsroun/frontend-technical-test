@@ -37,7 +37,7 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit, onGo
     return (
         <div className={styles.list}>
             <div className={styles.header}>
-                <span onClick={onGoBack}><b>Back</b></span>
+                <button className={styles.button} onClick={onGoBack}>Go back</button>
                 <span>{recipient}</span>
                 <span className={styles.lastDateMessage}>{getLastMessageDate()}</span>
             </div>
@@ -60,6 +60,7 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit, onGo
                             setMessage(e.target.value);
                         }}
                     />
+                    <input className={styles.button} type="submit" value="send" />
                 </form>
             </div>
         </div >
