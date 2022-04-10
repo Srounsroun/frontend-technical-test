@@ -25,8 +25,7 @@ open another command line to start the document and test environment:
 - I use the api in messenger Component which regroup everything that have been done (ConversationList and MessageList)
 - storybook allows me to develop and test at the same time.
 
-# Bonus 1: 
-- messenger component is also added to main home, don't forget to start the api server before
+# Bonus 2: 
 - a text message is displayed when error is catch during api fetching
 
 # to make the app better
