@@ -11,6 +11,7 @@ const Messenger: FC = () => {
 
     const userId = getLoggedUserId();
 
+    const [errorMessage, setErrorMessage] = useState<string>("");
     const [recipient, setRecipient] = useState<string>("");
     const [messages, setMessages] = useState<Message[]>();
     const [currentConversation, setCurrentConversation] = useState<Conversation>();
@@ -19,23 +20,25 @@ const Messenger: FC = () => {
 
     useEffect(() => {
         api.getConversations(userId)
-            .then(conversations => setConversations(conversations));
+            .then(conversations =>
+                setConversations(conversations)
+            );
     }, [])
 
     const handleOnClick = (conversation: Conversation) => {
         api.getMessages(conversation.id)
-        .then(messages => { 
-            setRecipient(conversation.recipientNickname);
-            setMessages(messages);
-            setCurrentConversation(conversation);
-        });
+            .then(messages => {
+                setRecipient(conversation.recipientNickname);
+                setMessages(messages);
+                setCurrentConversation(conversation);
+            });
     }
 
     const handleOnSubmit = (message) => {
         api.postMessage(userId, currentConversation.id, message)
-        .then(response => { 
-            setMessages([ ...messages, response])
-        });
+            .then(response => {
+                setMessages([...messages, response])
+            });
     }
 
     const handleGoBack = () => {
@@ -46,7 +49,7 @@ const Messenger: FC = () => {
     return (
         <div className={styles.container}>
             {!currentConversation && <ConversationListBox conversations={conversations} onCardClick={handleOnClick} />}
-            {currentConversation && <MessageList messages={messages} recipient={recipient} onSubmit={handleOnSubmit} onGoBack={handleGoBack}/>}
+            {currentConversation && <MessageList messages={messages} recipient={recipient} onSubmit={handleOnSubmit} onGoBack={handleGoBack} />}
         </div>
     )
 }
