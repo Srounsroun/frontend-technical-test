@@ -5,10 +5,10 @@ import ConversationBox from './ConversationBox'
 
 type ConversationListBoxProp = {
     conversations: Conversation[]
+    onCardClick: (conversation: Conversation) => void
 }
 
-const ConversationListBox: FC<ConversationListBoxProp> = ({ conversations }) => {
-
+const ConversationListBox: FC<ConversationListBoxProp> = ({ conversations, onCardClick }) => {
     return (
         <div className={styles.conversations}>
             {conversations?.map(conversation => <ConversationBox
@@ -16,6 +16,7 @@ const ConversationListBox: FC<ConversationListBoxProp> = ({ conversations }) => 
                 nickName={conversation.recipientNickname}
                 date={conversation.lastMessageTimestamp}
                 imageUrl={null}
+                onClick={() => { onCardClick(conversation); }}
             />)
             }
         </div>
