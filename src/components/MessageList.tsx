@@ -5,9 +5,9 @@ import { Message } from '../types/message'
 import { getLoggedUserId } from '../utils/getLoggedUserId'
 
 type MessageListProps = {
-    recipient: ""
+    recipient: string
     messages: Message[]
-    onSubmit?: (message: string) => string
+    onSubmit?: (message: string) => void
 }
 
 const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit }) => {
