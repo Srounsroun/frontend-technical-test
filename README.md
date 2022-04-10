@@ -15,15 +15,24 @@ open another command line to start the document and test environment:
 
 # The development process : 
 
+Install
 - First part, I forked the repo and took some times to understand the solution
 - I installed a storybook environment and try to make it work with NextJS
-- I create my first component ConversationBox
-- Then I use it in a ConversationListBox component and add the stories to be sure to match the api response.
-- I needed to update some types to add the timestamp
-- Then I continue to work on the messages and update the css accordingly to the sketch with responsive feature
+
+Conversation
+- I create my first component ConversationBox using the same structure
+- Then I use ConversationBox in a ConversationListBox component and add the stories to be sure to match the api response.
+
+Messages
+- I needed to update some types to add the timestamp, and use MomentJS to handle calendar display.
+- Then I worked on the messages component display and create the UI according to the sketch with responsive feature
+
+Messenger 
 - I create the messenger api service to be able to fetch and post data to conversation api.
 - I use the api in messenger Component which regroup everything that have been done (ConversationList and MessageList)
-- storybook allows me to develop and test at the same time.
+
+- storybook allows me to develop and test at the same time and fix issue during component test.
+- fixed small issue and updating readme.
 
 # Bonus 2: 
 - a text message is displayed when error is catch during api fetching
@@ -42,12 +51,17 @@ I also add a send button to the message form
 
 The component is fully pure and can be use in any outside library if needed.
 
-Time spent on this project about 9h
 
-- 1h to understand and setup environment
+# Time spent
+
+Time spent on this project about 10 hours.
+
+- 1h to understand, setup environment
+- 1h brainstorm on paper
 - 6h of late night coding session
 - 2h of cleaning when something's come's up in mind
 
+Thanks for the test !
 
 # Context :
 
