@@ -7,6 +7,44 @@ The interface needs to work on both desktop & mobile devices.
 
 In addition to your code, a README explaining your thought process and your choices would be appreciated.
 
+# From Singdavid : 
+
+To start 
+
+open a command line to execute the api server : 
+- npm run start-server
+
+open another command line to start the app:
+- npm run dev
+- access to http://localhost:3000
+
+open another command line to start the document and test environment:
+- npm run storybook
+- access to http://localhost:6006
+
+ The development process : 
+
+- First part, I forked the repo and took some times to understand the solution
+- I installed a storybook environment and try to make it work with NextJS
+- I create my first component ConversationBox
+- Then I use it in a ConversationListBox component and add the stories to be sure to match the api response.
+- I needed to update some types to add the timestamp
+- Then I continue to work on the messages and update the css accordingly with responsivity
+- I create the messenger api to be able to fetch and post data to conversation api.
+- I use it in messenger Component which regroup everything that have been done
+- storybook allows me to develop and test at the same time.
+
+Bonus 1: 
+- messenger component is also added to main home, don't forget to start the api server before
+
+Bonus 2: 
+- a text message is displayed when error is catch during api fetching
+
+Adding storybook allow to document and also develop component
+ - we can had test case
+ - we can also test responsiveness of component
+ - we can be sure that the component is pure
+
 # Exercice :
 
 - Display a list of all the conversations
