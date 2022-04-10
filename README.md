@@ -30,7 +30,7 @@ open another command line to start the document and test environment:
 
 # to make the app better
 
-Adding storybook allow to document and also develop component as tooling for development and maintenance
+Adding storybook allow to document and also develop component, it is great tooling for developers, test and maintenance
  - we can add test cases and scenarios
  - we can also test responsiveness of component on mobile
  - we can be sure that the component is pure
