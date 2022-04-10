@@ -6,14 +6,18 @@ export default {
   title: 'Example/ConversationBox',
   component: ConversationBox,
   argTypes: {
-    recipientNickName: {
-      label: "recipient nickname",
+    nickName: {
+      label: "Nickname",
+      description: "Name to display on card",
+      defaultValue: "empty",
       type: {
         name: "string"
       }
     },
     imageUrl: {
-      label: "profile picture",
+      label: "Profile Picture",
+      description: "Url to profile picture",
+      defaultValue: "default image",
       type: {
         name: "string"
       }
