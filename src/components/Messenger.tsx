@@ -22,7 +22,10 @@ const Messenger: FC = () => {
         api.getConversations(userId)
             .then(conversations =>
                 setConversations(conversations)
-            );
+            ).catch(reason => {
+                console.error(reason);
+                setErrorMessage("error while getting conversations, please check your connections ...");
+            });
     }, [])
 
     const handleOnClick = (conversation: Conversation) => {
@@ -48,6 +51,7 @@ const Messenger: FC = () => {
 
     return (
         <div className={styles.container}>
+            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
             {!currentConversation && <ConversationListBox conversations={conversations} onCardClick={handleOnClick} />}
             {currentConversation && <MessageList messages={messages} recipient={recipient} onSubmit={handleOnSubmit} onGoBack={handleGoBack} />}
         </div>

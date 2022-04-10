@@ -53,7 +53,7 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit, onGo
                     </div>
                 ))}
             </div>
-            < div className={styles.footer} >
+            <div className={styles.footer} >
                 <form onSubmit={handleOnSubmit}>
                     <input type="text" value={message || ""} onChange={
                         (e) => {

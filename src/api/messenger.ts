@@ -24,19 +24,16 @@ export const api = {
 
         return fetch(`${this.baseUrl}messages/${conversationId}`, requestOptions)
           .then(resp => resp.json())
-          .catch(reason => console.error("error posting messages", reason));
       },
       
     getMessages(conversationId: number) : Promise<Message[]> {
       return fetch(`${this.baseUrl}messages/${conversationId}`)
         .then(resp => resp.json())
-        .catch(reason => console.error("error fetching messages", reason));
     },
     
     getConversations(userId) : Promise<Conversation[]> {
         return fetch(`${this.baseUrl}conversations/${userId}`)
           .then(resp => resp.json())
-          .catch(reason => console.error("error fetching conversations", reason));
       }
 }
 
