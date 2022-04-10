@@ -37,10 +37,15 @@ const Messenger: FC = () => {
         });
     }
 
+    const handleGoBack = () => {
+        setMessages([])
+        setCurrentConversation(null);
+    }
+
     return (
         <>
-            {<ConversationListBox conversations={conversations} onCardClick={handleOnClick} />}
-            {currentConversation && <MessageList messages={messages} recipient={recipient} onSubmit={handleOnSubmit} />}
+            {!currentConversation && <ConversationListBox conversations={conversations} onCardClick={handleOnClick} />}
+            {currentConversation && <MessageList messages={messages} recipient={recipient} onSubmit={handleOnSubmit} onGoBack={handleGoBack}/>}
         </>
     )
 }

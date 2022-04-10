@@ -8,15 +8,22 @@ type MessageListProps = {
     recipient: string
     messages: Message[]
     onSubmit?: (message: string) => void
+    onGoBack?: () => void
 }
 
-const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit }) => {
+const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit, onGoBack }) => {
 
     const userId = getLoggedUserId();
 
     const isRecipient = (message: Message): boolean => message.authorId != userId;
 
-    const getLastMessage = (): Message => messages?.at(-1);
+    const getLastMessageDate = (): string => {
+        if (messages.length === 0) {
+            return null;
+        }
+        let lastMessage = messages?.at(-1);
+        return moment.unix(lastMessage?.timestamp).calendar();
+    }
 
     const [message, setMessage] = useState("");
 
@@ -30,8 +37,9 @@ const MessageList: FC<MessageListProps> = ({ messages, recipient, onSubmit }) =>
     return (
         <div className={styles.list}>
             <div className={styles.header}>
+                <span onClick={onGoBack}><b>Back</b></span>
                 <span>{recipient}</span>
-                <span className={styles.lastDateMessage}>{moment.unix(getLastMessage()?.timestamp).calendar()}</span>
+                <span className={styles.lastDateMessage}>{getLastMessageDate()}</span>
             </div>
             <div className={styles.content} >
                 {messages?.map(message => (
