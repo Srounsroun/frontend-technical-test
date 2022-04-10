@@ -41,9 +41,10 @@ Bonus 2:
 - a text message is displayed when error is catch during api fetching
 
 Adding storybook allow to document and also develop component
- - we can had test case
- - we can also test responsiveness of component
+ - we can add test cases and scenarios
+ - we can also test responsiveness of component on mobile
  - we can be sure that the component is pure
+ - hmr is available during dev
 
 # Exercice :
 
